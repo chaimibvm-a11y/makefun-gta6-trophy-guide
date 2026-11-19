@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Leonida Trophy Guide — GTA VI</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='14' fill='%23d24e2a'/%3E%3Ccircle cx='16' cy='16' r='8' fill='%23f6f3ee'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="masthead">
+  <div>
+    <p class="kicker">Grand Theft Auto VI &middot; PlayStation 5 &middot; offline guide &amp; tracker</p>
+    <h1>Leonida Trophy Guide</h1>
+    <p class="lede">Every one of the 55 official trophies, with a guide to each in our own words, a roadmap to the platinum, and a checklist that saves in your browser. 1 platinum, 2 gold, 6 silver, 46 bronze. 28 hidden on PlayStation until earned. No online trophies. About 200 hours to the platinum.</p>
+  </div>
+  <div class="score" aria-label="progress">
+    <div class="big"><span id="earnedCount">0</span><span class="of">/ 55</span></div>
+    <div class="bar"><div id="barFill"></div></div>
+    <p id="progressText">0 of 55 earned</p>
+    <p class="grades" id="gradeCounts"></p>
+  </div>
+</header>
+
+<nav class="tabs" aria-label="views">
+  <button type="button" data-view="checklist" class="active">Checklist</button>
+  <button type="button" data-view="roadmap">Roadmap to Platinum</button>
+  <button type="button" data-view="missables">Missables</button>
+</nav>
+
+<section id="view-checklist" class="view">
+  <div class="controls">
+    <label class="search">Search <input id="search" type="search" placeholder="Trophy name or word…" autocomplete="off"></label>
+    <div class="kinds" id="kinds" role="group" aria-label="Filter by kind">
+      <button type="button" data-kind="all" class="active">All 55</button>
+      <button type="button" data-kind="story">Story</button>
+      <button type="button" data-kind="missable">Missable</button>
+      <button type="button" data-kind="collectibles">Collectibles</button>
+      <button type="button" data-kind="activities">Activities</button>
+      <button type="button" data-kind="online">Online</button>
+      <button type="button" data-kind="platinum">Platinum</button>
+    </div>
+    <label class="grade">Grade
+      <select id="grade">
+        <option value="all">All grades</option>
+        <option value="platinum">Platinum</option>
+        <option value="gold">Gold</option>
+        <option value="silver">Silver</option>
+        <option value="bronze">Bronze</option>
+      </select>
+    </label>
+    <label class="spoiler"><input id="spoiler" type="checkbox"> Hide story spoilers</label>
+    <button id="export" type="button">Export progress</button>
+    <label class="import">Import progress <input id="import" type="file" accept="application/json"></label>
+  </div>
+  <p class="hint" id="listHint"></p>
+  <p class="hint">Tick a trophy off when you earn it: progress is saved in this browser. Source links in a trophy&rsquo;s guide open in a new tab; the guide itself never fetches anything.</p>
+  <div class="layout">
+    <div class="listwrap">
+      <table>
+        <thead><tr><th class="c">Earned</th><th>Trophy</th><th>Grade</th><th>Kind</th></tr></thead>
+        <tbody id="rows"></tbody>
+      </table>
+      <p class="empty" id="emptyState" hidden></p>
+    </div>
+    <aside class="detail" id="detail" aria-live="polite">
+      <p class="detail-empty">Select a trophy to read its guide and sources.</p>
+    </aside>
+  </div>
+</section>
+
+<section id="view-roadmap" class="view" hidden>
+  <h2>Roadmap to the platinum</h2>
+  <p class="lede">Play the story first, then clean up the map. Nine stages, in the order to earn them. Each stage shows the trophies it holds and how many you have ticked off.</p>
+  <ol class="stages" id="stages"></ol>
+  <h3>Next up</h3>
+  <p class="lede">The next five unearned trophies in roadmap order.</p>
+  <ol class="nextup" id="nextUp"></ol>
+</section>
+
+<section id="view-missables" class="view" hidden>
+  <h2>Missable trophies</h2>
+  <p class="lede">Only one trophy in the whole list is reported as missable. The rest unlock as you play, or stay available in free roam. The game has no mission replay, so the habit below is the whole defence.</p>
+  <div id="missableList"></div>
+  <h3>Save habits that protect a run</h3>
+  <ul class="advice">
+    <li>Keep a manual save at the start of every chapter and one before the final mission.</li>
+    <li>Meditate at Lucia&rsquo;s balcony spot before you finish Chapter 1: it counts toward Positive Mental Attitude and the spot is gone after the chapter.</li>
+    <li>Leave cheats off on a trophy run: cheats switch off trophies and saving.</li>
+    <li>Finish the side-character final missions (Andy, Kenton, Billy, Randy, Tyrone) before the story ends, even though they stay available.</li>
+  </ul>
+  <h3>Not confirmed yet</h3>
+  <p class="lede">Five trophies have no confirmed unlock method at launch. Their guides say so plainly and give only what the official description implies.</p>
+  <ul class="unconfirmed" id="unconfirmedList"></ul>
+</section>
+
+<footer>
+  <p>Names, descriptions and grades are the official list as PlayStation publishes it, as listed by Exophase and PSNProfiles. Every guide is written in our own words for this entry and cites its sources beside it. Works fully offline: this app loads nothing from the network, and your progress never leaves your browser.</p>
+  <p class="small">Leonida Trophy Guide — an unofficial, open-source fan guide. Not affiliated with Rockstar Games or PlayStation. No Rockstar logo or artwork is used.</p>
+</footer>
+<script type="module" src="app.js"></script>
+</body>
+</html>

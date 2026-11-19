@@ -1,0 +1,120 @@
+/* Leonida Trophy Guide: a paper look of its own. System fonts only, no network. */
+:root {
+  --paper: #f6f3ee;
+  --card: #ffffff;
+  --ink: #1d2129;
+  --muted: #626a75;
+  --line: #e3ddd2;
+  --accent: #d24e2a;
+  --accent-soft: #fbe9e2;
+  --gold: #d4af5a;
+  --silver: #aeb6bf;
+  --bronze: #c98b5e;
+  --platinum: #7fa8c9;
+}
+* { box-sizing: border-box; }
+body {
+  font-family: -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  margin: 0; background: var(--paper); color: var(--ink);
+  font-size: 15px; line-height: 1.45;
+}
+.masthead {
+  display: flex; gap: 32px; justify-content: space-between; align-items: flex-start;
+  max-width: 1240px; margin: 0 auto; padding: 28px 24px 8px;
+}
+.kicker { text-transform: uppercase; letter-spacing: .12em; font-size: 11px; color: var(--accent); margin: 0 0 6px; font-weight: 700; }
+h1 {
+  font-family: "Iowan Old Style", Palatino, Georgia, serif;
+  font-size: 40px; line-height: 1.05; margin: 0 0 8px;
+}
+.lede { color: var(--muted); margin: 0 0 12px; max-width: 62ch; }
+.score { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 14px 18px; min-width: 250px; }
+.big { font-family: "Iowan Old Style", Palatino, Georgia, serif; font-size: 44px; line-height: 1; }
+.big .of { font-size: 22px; color: var(--muted); }
+.bar { height: 8px; background: #ece7dd; border-radius: 4px; margin: 10px 0 6px; overflow: hidden; }
+.bar > div { height: 100%; background: var(--accent); width: 0%; transition: width .2s; }
+#progressText { margin: 0; font-weight: 700; }
+.grades { margin: 4px 0 0; color: var(--muted); font-size: 13px; }
+.tabs { display: flex; gap: 8px; max-width: 1240px; margin: 8px auto 0; padding: 0 24px; }
+.tabs button {
+  font: inherit; font-weight: 700; padding: 9px 16px; border: 1px solid var(--line);
+  background: var(--card); border-radius: 8px 8px 0 0; border-bottom: none; cursor: pointer; color: var(--muted);
+}
+.tabs button.active { color: var(--ink); background: var(--card); box-shadow: inset 0 3px 0 var(--accent); }
+.view { max-width: 1240px; margin: 0 auto; padding: 16px 24px 24px; background: var(--card); border: 1px solid var(--line); border-radius: 0 14px 14px 14px; }
+.view h2 { font-family: "Iowan Old Style", Palatino, Georgia, serif; font-size: 26px; margin: 4px 0 8px; }
+.view h3 { font-size: 17px; margin: 20px 0 6px; }
+.controls { display: flex; flex-wrap: wrap; gap: 10px 14px; align-items: center; margin: 4px 0 10px; }
+.controls label { font-weight: 600; font-size: 13px; color: var(--muted); display: flex; gap: 6px; align-items: center; }
+.controls input[type="search"] { font: inherit; padding: 7px 10px; border: 1px solid var(--line); border-radius: 6px; width: 210px; background: #fff; }
+.controls select { font: inherit; padding: 7px 8px; border: 1px solid var(--line); border-radius: 6px; background: #fff; }
+.kinds { display: flex; flex-wrap: wrap; gap: 6px; }
+.kinds button, #export, .import {
+  font: inherit; font-size: 13px; font-weight: 600; padding: 7px 11px; cursor: pointer;
+  border: 1px solid var(--line); background: #fff; border-radius: 20px; color: var(--ink);
+}
+.kinds button.active { background: var(--ink); color: #fff; border-color: var(--ink); }
+#export { background: var(--accent); border-color: var(--accent); color: #fff; }
+.import input { display: none; }
+.spoiler input { accent-color: var(--accent); }
+.hint { color: var(--muted); font-size: 13px; margin: 0 0 8px; }
+.layout { display: grid; grid-template-columns: minmax(0, 3fr) minmax(280px, 2fr); gap: 20px; align-items: start; }
+table { border-collapse: collapse; width: 100%; }
+th, td { border-bottom: 1px solid var(--line); padding: 8px 8px; text-align: left; vertical-align: top; }
+th { font-size: 12px; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); }
+th.c, td.c { text-align: center; width: 52px; }
+td input[type="checkbox"] { width: 18px; height: 18px; accent-color: var(--accent); cursor: pointer; }
+tr { cursor: pointer; }
+tr:focus-visible, tr:focus { outline: 2px solid var(--accent); outline-offset: -2px; }
+button:focus-visible, input:focus-visible, select:focus-visible, a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+tr:hover { background: #faf7f1; }
+tr.selected { background: var(--accent-soft); }
+tr.earned .tname { text-decoration: line-through; color: var(--muted); }
+.tname { font-weight: 700; }
+.tdesc { color: var(--muted); font-size: 13px; }
+.medal { display: inline-block; width: 14px; height: 14px; border-radius: 50%; border: 1px solid rgba(0,0,0,.25); vertical-align: -2px; margin-right: 6px; }
+.medal.platinum { background: var(--platinum); }
+.medal.gold { background: var(--gold); }
+.medal.silver { background: var(--silver); }
+.medal.bronze { background: var(--bronze); }
+.glabel { text-transform: capitalize; font-size: 13px; white-space: nowrap; }
+.tag { display: inline-block; font-size: 11px; font-weight: 700; padding: 1px 7px; border-radius: 10px; background: #efece6; color: var(--muted); margin: 1px 2px 1px 0; white-space: nowrap; }
+.tag.miss { background: #fbe3da; color: #a63a1d; }
+.tag.hidden { background: #e8e4f2; color: #5b4a8a; }
+.empty { color: var(--muted); padding: 24px 8px; }
+.detail { position: sticky; top: 12px; border: 1px solid var(--line); border-radius: 14px; padding: 16px 18px; background: #fffdf8; }
+.detail-empty { color: var(--muted); margin: 0; }
+.detail h3 { font-family: "Iowan Old Style", Palatino, Georgia, serif; font-size: 22px; margin: 0 0 4px; }
+.detail .off { color: var(--muted); font-style: italic; margin: 0 0 10px; }
+.detail .meta { font-size: 13px; color: var(--muted); margin: 0 0 10px; }
+.detail .guide { margin: 0 0 12px; }
+.detail .warn { background: #fbe3da; border-left: 4px solid var(--accent); padding: 8px 10px; border-radius: 0 6px 6px 0; margin: 0 0 12px; font-size: 14px; }
+.detail .count { background: #eef3f7; border-radius: 6px; padding: 6px 10px; font-size: 13px; margin: 0 0 12px; }
+.detail h4 { font-size: 12px; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); margin: 12px 0 4px; }
+.detail ul.sources { margin: 0; padding-left: 18px; font-size: 13px; }
+.detail ul.sources a { color: var(--accent); }
+.detail .earned-line { margin: 12px 0 0; }
+.detail .earned-line button { font: inherit; font-weight: 700; padding: 8px 14px; border-radius: 6px; border: 1px solid var(--accent); background: var(--accent); color: #fff; cursor: pointer; }
+.detail .earned-line button.undo { background: #fff; color: var(--accent); }
+.stages { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; }
+.stages li { border: 1px solid var(--line); border-radius: 12px; padding: 14px 16px; background: #fffdf8; }
+.stages .shead { display: flex; justify-content: space-between; gap: 12px; align-items: baseline; }
+.stages h3 { margin: 0; font-size: 17px; }
+.stages .sprog { font-weight: 700; white-space: nowrap; }
+.stages p { margin: 6px 0; color: var(--muted); }
+.stages .chips { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 8px; }
+.stages .chip { font-size: 12px; padding: 3px 9px; border-radius: 12px; border: 1px solid var(--line); background: #fff; }
+.stages .chip.done { background: #e7f2e4; border-color: #9cc39a; text-decoration: line-through; color: var(--muted); }
+.nextup { margin: 0; padding-left: 22px; }
+.nextup li { margin: 4px 0; }
+.advice, .unconfirmed { margin: 0 0 8px; padding-left: 22px; }
+.advice li, .unconfirmed li { margin: 5px 0; }
+.misscard { border: 1px solid var(--line); border-left: 4px solid var(--accent); border-radius: 12px; padding: 14px 16px; background: #fffdf8; margin-bottom: 12px; }
+.misscard h3 { margin: 0 0 4px; }
+footer { max-width: 1240px; margin: 0 auto; padding: 16px 24px 32px; color: var(--muted); font-size: 13px; }
+footer .small { font-size: 12px; }
+@media (max-width: 900px) {
+  .masthead { flex-direction: column; }
+  .layout { grid-template-columns: 1fr; }
+  .detail { position: static; }
+}
